@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>User History</h1>
+    <table>
+        <thead>
+            <tr>   
+                <th>WBC Count</th>
+                <th>RBC Count</th>
+                <th>Hemoglobin</th>
+                <th>Platelet Count</th>
+                <th>Neutrophils</th>
+                <th>Lymphocytes</th>
+                <th> Monocytes</th>
+                <th> Eosinophils</th>
+                <th> Basophils</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in history %}
+            <tr>      
+                <td>{{ record.WBC }}</td>
+                <td>{{ record.RBC }}</td>
+                <td>{{ record.HGB }}</td>
+                <td>{{ record.PLT }}</td>
+                <td>{{ record.NEUT }}</td>
+                <td>{{ record.LYMPH }}</td>
+                <td>{{ record.MONO }}</td>
+                <td>{{ record.EO }}</td>
+                <td>{{ record.BASO }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button><a href="{{ url_for('view_history') }}">History</a></button>
+
+</body>
+</html>
